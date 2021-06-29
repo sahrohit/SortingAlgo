@@ -1,3 +1,9 @@
+import { Flex } from "@chakra-ui/react";
+
 export const Header = () => {
-  return <div>I m header right now</div>;
+  return (
+    <Flex height="2rem" justifyContent="center">
+      I m header right now
+    </Flex>
+  );
 };

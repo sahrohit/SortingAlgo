@@ -1,14 +1,16 @@
 import { Box } from "@chakra-ui/react";
 interface IProps {
-  height: string;
+  height: number;
 }
+
 export const Bar: React.FC<IProps> = ({ height }) => {
+  const barHeight = height.toString() + "rem";
   return (
     <Box
       border="3px solid black"
-      height={height}
+      height={barHeight}
       width="2rem"
-      backgroundColor="blue.300"
+      backgroundColor="blue.400"
     ></Box>
   );
 };
