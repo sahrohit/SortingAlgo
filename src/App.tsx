@@ -4,7 +4,12 @@ import { Flex } from "@chakra-ui/react"
 
 function App() {
   return (
-    <Flex backgroundColor="rgb(34,32,32)" direction="column" height="100vh">
+    <Flex
+      height="100vh"
+      overflowY="hidden"
+      backgroundColor="rgb(34,32,32)"
+      direction="column"
+    >
       <Header />
       <Graph />
     </Flex>

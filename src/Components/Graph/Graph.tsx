@@ -1,23 +1,51 @@
-import React, { useState } from "react"
-import { Flex, Button, Select } from "@chakra-ui/react"
+import React, { useState, useRef } from "react"
+import { Flex, Button, Select, useToast } from "@chakra-ui/react"
 import { Bar } from "./Shared/Bar"
 import { nanoid } from "nanoid"
 import { wait } from "../Algos && Utils/Wait"
 import { insertionSort } from "../Algos && Utils/InsertionSort"
+import { selectionSort } from "../Algos && Utils/SelectionSort"
+import { quickSort } from "../Algos && Utils/QuickSort"
 
 export const Graph = () => {
+  const toast = useToast()
+
   const arr: number[] = Array.from({ length: 35 }, () =>
     Math.floor(Math.random() * 35 + 1)
   )
+
+  const arrToSort = useRef(arr)
 
   const [state, setState] = useState<number[]>(arr)
   const [select, setSelect] = useState<string>("")
 
   const handleSort = () => {
-    insertionSort(arr, wait, setState)
-  }
+    if (select) {
+      switch (select) {
+        case "Insertion":
+          insertionSort(arrToSort.current, wait, setState)
+          break
 
-  console.log(select)
+        case "Selection":
+          selectionSort(arrToSort.current, wait, setState)
+          break
+
+        case "Quick":
+          quickSort(arrToSort.current, wait, setState)
+          break
+
+        default:
+          break
+      }
+    } else
+      toast({
+        title: "Please Select a Algorithm",
+        position: "top-right",
+        status: "error",
+        duration: 1500,
+        isClosable: true,
+      })
+  }
 
   return (
     <Flex
@@ -44,6 +72,8 @@ export const Graph = () => {
           }
         >
           <option value="Insertion">Insertion Sort</option>
+          <option value="Selection">Selection Sort</option>
+          <option value="Quick">Quick Sort</option>
         </Select>
         <Button
           mt="1rem"
@@ -51,7 +81,7 @@ export const Graph = () => {
           onClick={handleSort}
           variant="outline"
           color="#ede5e5"
-          _hover={{ bgColor: "rbg(34,32,32)", filter: "brightness(1.5)" }}
+          _hover={{ bgColor: "white", color: "black" }}
           _focus={{}}
         >
           Sort
