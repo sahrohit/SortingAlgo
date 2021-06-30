@@ -7,7 +7,7 @@ export const Header = () => {
       height="2rem"
       alignItems="center"
       justifyContent="center"
-      color="rgb(104, 141, 177)"
+      color="white"
     >
       <Heading fontSize="2xl">Visualize Sorting Algorithms</Heading>
     </Flex>

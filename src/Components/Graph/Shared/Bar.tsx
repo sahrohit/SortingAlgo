@@ -12,8 +12,8 @@ export const Bar: React.FC<IProps> = ({ height }) => {
       fontWeight="bold"
       margin="0 0.09rem"
       width="2rem"
-      color="black"
-      backgroundColor="#68a162"
+      color="white"
+      backgroundColor="blue.500"
     >
       {height}
     </Flex>

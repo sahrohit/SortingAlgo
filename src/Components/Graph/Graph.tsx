@@ -8,16 +8,15 @@ import { selectionSort } from "../Algos && Utils/SelectionSort"
 import { quickSort } from "../Algos && Utils/QuickSort"
 
 export const Graph = () => {
-  const toast = useToast()
-
-  const arr: number[] = Array.from({ length: 35 }, () =>
+  let arr: number[] = Array.from({ length: 35 }, () =>
     Math.floor(Math.random() * 35 + 1)
   )
 
-  const arrToSort = useRef(arr)
-
+  const toast = useToast()
   const [state, setState] = useState<number[]>(arr)
   const [select, setSelect] = useState<string>("")
+
+  const arrToSort = useRef(arr)
 
   const handleSort = () => {
     if (select) {
@@ -47,6 +46,12 @@ export const Graph = () => {
       })
   }
 
+  const newArray = () => {
+    arr = Array.from({ length: 35 }, () => Math.floor(Math.random() * 35 + 1))
+    arrToSort.current = arr
+    setState([...arr])
+  }
+
   return (
     <Flex
       minHeight="80vh"
@@ -73,11 +78,21 @@ export const Graph = () => {
         >
           <option value="Insertion">Insertion Sort</option>
           <option value="Selection">Selection Sort</option>
-          <option value="Quick">Quick Sort</option>
         </Select>
         <Button
           mt="1rem"
-          ml="1rem"
+          mr="1rem"
+          padding="0 2rem"
+          variant="outline"
+          color="#ede5e5"
+          onClick={() => newArray()}
+          _hover={{ bgColor: "white", color: "black" }}
+          _focus={{}}
+        >
+          New Array
+        </Button>
+        <Button
+          mt="1rem"
           onClick={handleSort}
           variant="outline"
           color="#ede5e5"
