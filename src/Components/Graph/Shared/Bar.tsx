@@ -1,16 +1,21 @@
-import { Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react"
 interface IProps {
-  height: number;
+  height: number
 }
 
 export const Bar: React.FC<IProps> = ({ height }) => {
-  const barHeight = height.toString() + "rem";
+  const barHeight: string = (height + 1).toString() + "rem"
   return (
-    <Box
-      border="3px solid black"
+    <Flex
+      justifyContent="center"
       height={barHeight}
+      fontWeight="bold"
+      margin="0 0.09rem"
       width="2rem"
-      backgroundColor="blue.400"
-    ></Box>
-  );
-};
+      color="black"
+      backgroundColor="#68a162"
+    >
+      {height}
+    </Flex>
+  )
+}
