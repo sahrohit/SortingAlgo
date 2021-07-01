@@ -2,7 +2,7 @@ export const selectionSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
   setState: React.Dispatch<React.SetStateAction<number[]>>
-) => {
+): Promise<void> => {
   let i = 0
   while (i < arr.length) {
     let min = i

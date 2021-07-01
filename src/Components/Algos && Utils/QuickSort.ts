@@ -2,7 +2,7 @@ export const quickSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
   setState: React.Dispatch<React.SetStateAction<number[]>>
-) => {
+): Promise<void> => {
   qSort(arr, 0, arr.length, wait, setState)
 }
 
@@ -30,7 +30,6 @@ const partition = async (
 ): Promise<number> => {
   let temp
   let pivot = arr[high]
-
   let i = low - 1
 
   for (let j = low; j <= high - 1; j++) {

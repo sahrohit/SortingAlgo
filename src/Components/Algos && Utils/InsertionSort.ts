@@ -2,7 +2,7 @@ export const insertionSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
   setState: React.Dispatch<React.SetStateAction<number[]>>
-) => {
+): Promise<void> => {
   let i = 1
   while (i < arr.length) {
     while (arr[i] < arr[i - 1]) {

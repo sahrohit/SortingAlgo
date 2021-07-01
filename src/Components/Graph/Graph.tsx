@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react"
-import { Flex, Button, Select, useToast } from "@chakra-ui/react"
+import { Flex, Text, Button, Select, useToast } from "@chakra-ui/react"
 import { Bar } from "./Shared/Bar"
 import { nanoid } from "nanoid"
 import { wait } from "../Algos && Utils/Wait"
@@ -7,6 +7,7 @@ import { insertionSort } from "../Algos && Utils/InsertionSort"
 import { selectionSort } from "../Algos && Utils/SelectionSort"
 import { quickSort } from "../Algos && Utils/QuickSort"
 import { mergeSort } from "../Algos && Utils/MergeSort"
+import { bubbleSort } from "../Algos && Utils/BubbleSort"
 
 export const Graph = () => {
   let arr: number[] = Array.from({ length: 35 }, () =>
@@ -38,6 +39,10 @@ export const Graph = () => {
           mergeSort(arrToSort.current, wait, setState)
           break
 
+        case "Bubble":
+          bubbleSort(arrToSort.current, wait, setState)
+          break
+
         default:
           break
       }
@@ -59,7 +64,7 @@ export const Graph = () => {
 
   return (
     <Flex
-      minHeight="80vh"
+      minHeight="85vh"
       flexDirection="column"
       alignItems="center"
       justifyContent="flex-end"
@@ -85,6 +90,7 @@ export const Graph = () => {
           <option value="Selection">Selection Sort</option>
           <option value="Quick">Quick Sort</option>
           <option value="Merge">Merge Sort</option>
+          <option value="Bubble">Bubble Sort</option>
         </Select>
         <Button
           mt="1rem"
@@ -109,6 +115,10 @@ export const Graph = () => {
           Sort
         </Button>
       </Flex>
+      <Text fontSize="12" color="rgb(154,153,152)" mt="1rem">
+        Not Indicative of real world performance. Array size is too low to make
+        a difference and there is a 100ms wait on every swap.
+      </Text>
     </Flex>
   )
 }
