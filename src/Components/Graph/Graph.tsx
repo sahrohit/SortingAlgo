@@ -6,6 +6,7 @@ import { wait } from "../Algos && Utils/Wait"
 import { insertionSort } from "../Algos && Utils/InsertionSort"
 import { selectionSort } from "../Algos && Utils/SelectionSort"
 import { quickSort } from "../Algos && Utils/QuickSort"
+import { mergeSort } from "../Algos && Utils/MergeSort"
 
 export const Graph = () => {
   let arr: number[] = Array.from({ length: 35 }, () =>
@@ -31,6 +32,10 @@ export const Graph = () => {
 
         case "Quick":
           quickSort(arrToSort.current, wait, setState)
+          break
+
+        case "Merge":
+          mergeSort(arrToSort.current, wait, setState)
           break
 
         default:
@@ -78,6 +83,8 @@ export const Graph = () => {
         >
           <option value="Insertion">Insertion Sort</option>
           <option value="Selection">Selection Sort</option>
+          <option value="Quick">Quick Sort</option>
+          <option value="Merge">Merge Sort</option>
         </Select>
         <Button
           mt="1rem"

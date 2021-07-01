@@ -6,7 +6,9 @@ export const insertionSort = async (
   let i = 1
   while (i < arr.length) {
     while (arr[i] < arr[i - 1]) {
-      ;[arr[i], arr[i - 1]] = [arr[i - 1], arr[i]]
+      const temp = arr[i]
+      arr[i] = arr[i - 1]
+      arr[i - 1] = temp
       i--
       await wait(100)
       setState([...arr])

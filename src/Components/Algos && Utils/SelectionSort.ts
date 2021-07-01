@@ -12,7 +12,9 @@ export const selectionSort = async (
       j++
     }
     if (i !== min) {
-      ;[arr[i], arr[min]] = [arr[min], arr[i]]
+      const temp = arr[i]
+      arr[i] = arr[min]
+      arr[min] = temp
       await wait(100)
       setState([...arr])
     }
