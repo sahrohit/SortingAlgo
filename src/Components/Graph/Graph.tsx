@@ -1,5 +1,5 @@
 import { useState, useRef } from "react"
-import { Flex, Text, Button, Select, useToast } from "@chakra-ui/react"
+import { Flex, Text, Button, Select, useToast, Link } from "@chakra-ui/react"
 import { Bar } from "./Shared/Bar"
 import { nanoid } from "nanoid"
 import { wait } from "../Algos && Utils/Wait"
@@ -141,7 +141,14 @@ export const Graph = () => {
       </Flex>
       <Text fontSize="12" color="rgb(154,153,152)" mt="1rem">
         Not indicative of real world performance. Array size is too low to make
-        a difference and there is a 100ms wait on every swap.
+        a difference and there is a 100ms wait on every swap.{" "}
+        <Link
+          color="blue.400"
+          href="https://github.com/Sang-it/SortingAlgo"
+          target="blank"
+        >
+          Source Code
+        </Link>
       </Text>
     </Flex>
   )
