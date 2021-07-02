@@ -10,7 +10,7 @@ export const insertionSort = async (
       arr[i] = arr[i - 1]
       arr[i - 1] = temp
       i--
-      await wait(100)
+      await wait(80)
       setState([...arr])
     }
     i++

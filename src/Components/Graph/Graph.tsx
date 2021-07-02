@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import { useState, useRef } from "react"
 import { Flex, Text, Button, Select, useToast } from "@chakra-ui/react"
 import { Bar } from "./Shared/Bar"
 import { nanoid } from "nanoid"
@@ -8,6 +8,10 @@ import { selectionSort } from "../Algos && Utils/SelectionSort"
 import { quickSort } from "../Algos && Utils/QuickSort"
 import { mergeSort } from "../Algos && Utils/MergeSort"
 import { bubbleSort } from "../Algos && Utils/BubbleSort"
+import { heapSort } from "../Algos && Utils/HeapSort"
+import { shellSort } from "../Algos && Utils/ShellSort"
+import { combSort } from "../Algos && Utils/CombSort"
+import { radixSort } from "../Algos && Utils/RadixSort"
 
 export const Graph = () => {
   let arr: number[] = Array.from({ length: 35 }, () =>
@@ -41,6 +45,22 @@ export const Graph = () => {
 
         case "Bubble":
           bubbleSort(arrToSort.current, wait, setState)
+          break
+
+        case "Heap":
+          heapSort(arrToSort.current, wait, setState)
+          break
+
+        case "Shell":
+          shellSort(arrToSort.current, wait, setState)
+          break
+
+        case "Comb":
+          combSort(arrToSort.current, wait, setState)
+          break
+
+        case "Radix":
+          radixSort(arrToSort.current, wait, setState)
           break
 
         default:
@@ -91,6 +111,10 @@ export const Graph = () => {
           <option value="Quick">Quick Sort</option>
           <option value="Merge">Merge Sort</option>
           <option value="Bubble">Bubble Sort</option>
+          <option value="Heap">Heap Sort</option>
+          <option value="Shell">Shell Sort</option>
+          <option value="Comb">Comb Sort</option>
+          <option value="Radix">Radix Sort</option>
         </Select>
         <Button
           mt="1rem"
@@ -116,7 +140,7 @@ export const Graph = () => {
         </Button>
       </Flex>
       <Text fontSize="12" color="rgb(154,153,152)" mt="1rem">
-        Not Indicative of real world performance. Array size is too low to make
+        Not indicative of real world performance. Array size is too low to make
         a difference and there is a 100ms wait on every swap.
       </Text>
     </Flex>
