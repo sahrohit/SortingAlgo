@@ -12,6 +12,7 @@ import { heapSort } from "../Algos && Utils/HeapSort"
 import { shellSort } from "../Algos && Utils/ShellSort"
 import { combSort } from "../Algos && Utils/CombSort"
 import { radixSort } from "../Algos && Utils/RadixSort"
+import { bogoSort } from "../Algos && Utils/BogoSort"
 
 export const Graph = () => {
   let arr: number[] = Array.from({ length: 35 }, () =>
@@ -62,6 +63,10 @@ export const Graph = () => {
         case "Radix":
           radixSort(arrToSort.current, wait, setState)
           break
+          
+        case "Bogo":
+        bogoSort(arrToSort.current, wait, setState)
+        break
 
         default:
           break
@@ -115,6 +120,7 @@ export const Graph = () => {
           <option value="Shell">Shell Sort</option>
           <option value="Comb">Comb Sort</option>
           <option value="Radix">Radix Sort</option>
+          <option value="Bogo">Bogo Sort</option>
         </Select>
         <Button
           mt="1rem"
